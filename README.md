@@ -14,7 +14,7 @@
 
 ## Tests
 
-Use `npm test` to run the tests. Use `npm run cover` to check coverage.
+Run `npm run build` first, then `npm test` to run the tests. Use `npm run cover` to check coverage.
 
 ## Changelog
 

@@ -13,9 +13,13 @@ teaser:
 ifeq (true,$(COVERAGE))
 test:
 	make coveralls
+test-harmony:
+	make coveralls
 else
 test:
 	make tests
+test-harmony:
+	make tests-harmony
 endif
 
 tests:
@@ -25,17 +29,28 @@ tests:
 		make jshint && make teaser && ./node_modules/mocha/bin/mocha --check-leaks --colors -t 10000 --reporter $(REPORTER) $(TESTS); \
 	fi
 
+tests-harmony:
+	@if [ "$$GREP" ]; then \
+		make jshint && make teaser && ./node_modules/mocha/bin/mocha --harmony --check-leaks --colors -t 10000 --reporter $(REPORTER) -g "$$GREP" $(TESTS); \
+	else \
+		make jshint && make teaser && ./node_modules/mocha/bin/mocha --harmony --check-leaks --colors -t 10000 --reporter $(REPORTER) $(TESTS); \
+	fi
+
 jshint:
 	./node_modules/.bin/jshint lib test
 
+build:
+	npm install
+	node build.js
+
 cover:
 	make teaser; \
-	./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec $(TESTS); \
-	rm -rf coverage
-
-coveralls:
-	./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec; \
-	cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js; \
+	./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- -R spec $(TESTS); \
 	rm -rf ./coverage
 
-.PHONY: test tests cover coveralls
+coveralls:
+	./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- -R spec; \
+	cat ./coverage/lcov.info | ./node_modules/.bin/coveralls; \
+	rm -rf ./coverage
+
+.PHONY: test test-harmony tests tests-harmony cover coveralls

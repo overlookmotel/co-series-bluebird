@@ -6,3 +6,4 @@ coverage
 .npmignore
 .travis.yml
 Makefile
+build.js

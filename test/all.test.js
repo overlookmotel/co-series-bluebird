@@ -1,23 +1,29 @@
 // --------------------
-// co-series-bluebird module
+// co-series module
 // Tests
 // --------------------
 
 // modules
 var chai = require('chai'),
-	expect = chai.expect,
-	series = require('../lib/');
+	chaiAsPromised = require('chai-as-promised'),
+	generatorSupported = require('generator-supported');
 
 // init
 chai.config.includeStack = true;
+chai.use(chaiAsPromised);
 
 // tests
 
-/* jshint expr: true */
 /* global describe, it */
 
-describe('Tests', function() {
-	it.skip('all', function() {
-		expect(series).to.be.ok;
-	});
+describe('Function', function() {
+	require('./functions.test.inc.js');
+});
+
+describe('Generator', function() {
+	if (generatorSupported) {
+		require('./generators.test.inc.js');
+	} else {
+		it('works');
+	}
 });

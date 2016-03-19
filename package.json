@@ -14,15 +14,20 @@
     "url": "https://github.com/overlookmotel/co-series-bluebird/issues"
   },
   "dependencies": {
-    "co-series": "^3.0.0",
+    "co-series": "^3.0.2",
     "bluebird": "^3.3.4"
   },
   "devDependencies": {
     "mocha": "^2.4.5",
     "chai": "^3.5.0",
+    "chai-as-promised": "^5.2.0",
     "jshint": "^2.9.1",
     "istanbul": "^0.4.2",
-    "coveralls": "^2.11.8"
+    "coveralls": "^2.11.8",
+    "fs-extra-promise": "^0.2.1",
+    "lodash": "^4.6.1",
+    "generator-supported": "0.0.1",
+    "q": "^1.4.1"
   },
   "keywords": [
     "co",
@@ -36,7 +41,8 @@
   ],
   "scripts": {
     "test": "make test",
-    "cover": "make cover"
+    "cover": "make cover",
+    "build": "make build"
   },
   "engines": {
     "node": ">=0.10.0"
