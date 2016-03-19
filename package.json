@@ -1,6 +1,6 @@
 {
   "name": "co-series-bluebird",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Run in series with co and bluebird",
   "main": "./lib/",
   "author": {
