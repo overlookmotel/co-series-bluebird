@@ -14,6 +14,8 @@
     "url": "https://github.com/overlookmotel/co-series-bluebird/issues"
   },
   "dependencies": {
+    "co-series": "^3.0.0",
+    "bluebird": "^3.3.4"
   },
   "devDependencies": {
     "mocha": "^2.4.5",
