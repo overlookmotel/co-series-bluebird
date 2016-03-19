@@ -7,3 +7,4 @@
 ## Next
 
 * Build script to copy tests from `co-series`
+* README

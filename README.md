@@ -12,6 +12,12 @@
 
 ## Usage
 
+This small module shims an asynchronous function to ensure it queues each execution after the the previous execution is complete.
+
+Exactly the same as [co-series](https://www.npmjs.com/package/co-series) but using [bluebird](https://www.npmjs.com/package/bluebird) rather than native JS promises.
+
+Please see documentation for [co-series](https://www.npmjs.com/package/co-series) for more details.
+
 ## Tests
 
 Run `npm run build` first, then `npm test` to run the tests. Use `npm run cover` to check coverage.
