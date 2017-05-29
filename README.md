@@ -1,5 +1,7 @@
 # co-series-bluebird.js
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/overlookmotel/co-series-bluebird.svg)](https://greenkeeper.io/)
+
 # Run in series with co and bluebird
 
 ## Current status
